@@ -19,7 +19,7 @@ index 11d0e2b..dd12d5d 100644
  static void
  intel_output_dpms(xf86OutputPtr output, int mode);
  
-@@ -1348,7 +1350,7 @@ intel_output_init(ScrnInfoPtr scrn, struct intel_mode *mode, int num)
+@@ -1334,7 +1336,7 @@ intel_output_init(ScrnInfoPtr scrn, struct intel_mode *mode, int num)
  	if (is_panel(koutput->connector_type))
  		intel_output_backlight_init(output);
  
@@ -28,7 +28,7 @@ index 11d0e2b..dd12d5d 100644
  	output->possible_clones = kencoder->possible_clones;
  	output->interlaceAllowed = TRUE;
  
-@@ -1421,6 +1423,9 @@ intel_xf86crtc_resize(ScrnInfoPtr scrn, int width, int height)
+@@ -1407,6 +1409,9 @@ intel_xf86crtc_resize(ScrnInfoPtr scrn, int width, int height)
  		if (!crtc->enabled)
  			continue;
  
@@ -38,7 +38,7 @@ index 11d0e2b..dd12d5d 100644
  		if (!intel_crtc_apply(crtc))
  			goto fail;
  	}
-@@ -1490,6 +1495,9 @@ intel_do_pageflip(intel_screen_private *intel,
+@@ -1476,6 +1481,9 @@ intel_do_pageflip(intel_screen_private *intel,
  		if (!config->crtc[i]->enabled)
  			continue;
  
@@ -48,7 +48,7 @@ index 11d0e2b..dd12d5d 100644
  		mode->flip_info = flip_info;
  		mode->flip_count++;
  
-@@ -1626,6 +1634,9 @@ Bool intel_mode_pre_init(ScrnInfoPtr scrn, int fd, int cpp)
+@@ -1612,6 +1620,9 @@ Bool intel_mode_pre_init(ScrnInfoPtr scrn, int fd, int cpp)
  	for (i = 0; i < mode->mode_res->count_connectors; i++)
  		intel_output_init(scrn, mode, i);
  
